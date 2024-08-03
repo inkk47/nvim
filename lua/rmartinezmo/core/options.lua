@@ -31,6 +31,14 @@ opt.incsearch = true -- search as characters are entered
 opt.ignorecase = true -- ignore case when searching
 opt.smartcase = false -- if you include mixed case in your search, assumes you want case-sensitive
 
+opt.smartcase = true -- Don't ignore case with capitals
+opt.smartindent = true -- Insert indents automatically
+opt.spelllang = { "es" }
+opt.timeoutlen = vim.g.vscode and 1000 or 300 -- Lower than default (1000) to quickly trigger which-key
+
+-- Fix markdown indentation settings
+vim.g.markdown_recommended_style = 0
+
 -- cursor line
 opt.cursorline = true -- highlight the current cursor line
 
@@ -61,6 +69,9 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- turn off swapfile
 opt.swapfile = false
+
+-- Confirm to save changes before exiting modified buffer
+opt.confirm = true
 
 -- Save undo history
 opt.undofile = true
