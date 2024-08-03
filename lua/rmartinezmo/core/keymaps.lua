@@ -26,8 +26,8 @@ keymap.set({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", exp
 
 -- windows
 keymap.set("n", "<leader>w", "<c-w>", { desc = "Windows", remap = true })
-keymap.set("n", "<leader>-", "<C-W>s", { desc = "Split Window Below", remap = true })
-keymap.set("n", "<leader>|", "<C-W>v", { desc = "Split Window Right", remap = true })
+keymap.set("n", "<leader>w-", "<C-W>s", { desc = "Split Window Below", remap = true })
+keymap.set("n", "<leader>w|", "<C-W>v", { desc = "Split Window Right", remap = true })
 keymap.set("n", "<leader>wd", "<C-W>c", { desc = "Delete Window", remap = true })
 
 -- Resize window using <ctrl> arrow keys
@@ -80,8 +80,8 @@ keymap.set("v", "<A-k>", ":m .-2<CR>==", opts)
 keymap.set("v", "p", '"_dP', opts)
 
 -- increment/decrement numbers
-keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
-keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" }) -- decrement
+keymap.set("n", "+", "<C-a>", { desc = "Increment number" }) -- increment
+keymap.set("n", "-", "<C-x>", { desc = "Decrement number" }) -- decrement
 
 keymap.set("n", "<leader>we", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
 keymap.set("n", "<leader>wx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
@@ -91,7 +91,7 @@ keymap.set("n", "<leader>wx", "<cmd>close<CR>", { desc = "Close current split" }
 keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
 -- Noice
-vim.api.nvim_set_keymap("n", "<leader>nn", ":Noice dismiss<CR>", { noremap = true })
+-- vim.api.nvim_set_keymap("n", "<leader>nn", ":Noice dismiss<CR>", { noremap = true })
 
 -- clear highlights
 keymap.set("n", "<Esc>", ":noh<CR>", opts)
