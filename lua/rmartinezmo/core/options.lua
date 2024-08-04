@@ -95,5 +95,8 @@ vim.g.lazygit_config = true
 -- set tab name as buffer
 vim.g.airline_extensions_tabline_formatter = "unique_tail"
 
-vim.o.completeopt = "menuone,noselect" -- Set completeopt to have a better completion experience
-vim.opt.termguicolors = true -- set termguicolors to enable highlight groupspt.swapfile = false
+-- Set completeopt to have a better completion experience
+vim.o.completeopt = "menuone,noselect"
+
+-- set termguicolors to enable highlight groupspt.swapfile = false
+vim.opt.termguicolors = true
