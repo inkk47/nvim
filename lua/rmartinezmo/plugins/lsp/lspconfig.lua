@@ -78,26 +78,29 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
+    -- Define a function to stop the LSP client for Markdown files
+    local function on_attach(client, bufnr)
+      local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
+      if filetype == "markdown" then
+        client.stop()
+        return
+      end
+      -- You can add other on_attach functionality here if needed
+    end
+
     mason_lspconfig.setup_handlers({
       -- default handler for installed servers
       function(server_name)
         lspconfig[server_name].setup({
           capabilities = capabilities,
+          on_attach = on_attach, -- use the on_attach function
         })
       end,
       ["svelte"] = function()
         -- configure svelte server
         lspconfig["svelte"].setup({
           capabilities = capabilities,
-          on_attach = function(client, bufnr)
-            vim.api.nvim_create_autocmd("BufWritePost", {
-              pattern = { "*.js", "*.ts" },
-              callback = function(ctx)
-                -- Here use ctx.match instead of ctx.file
-                client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
-              end,
-            })
-          end,
+          on_attach = on_attach, -- use the on_attach function
         })
       end,
       ["graphql"] = function()
@@ -105,6 +108,7 @@ return {
         lspconfig["graphql"].setup({
           capabilities = capabilities,
           filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
+          on_attach = on_attach, -- use the on_attach function
         })
       end,
       ["emmet_ls"] = function()
@@ -112,12 +116,14 @@ return {
         lspconfig["emmet_ls"].setup({
           capabilities = capabilities,
           filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
+          on_attach = on_attach, -- use the on_attach function
         })
       end,
       ["lua_ls"] = function()
         -- configure lua server (with special settings)
         lspconfig["lua_ls"].setup({
           capabilities = capabilities,
+          on_attach = on_attach, -- use the on_attach function
           settings = {
             Lua = {
               -- make the language server recognize "vim" global
