@@ -45,8 +45,8 @@ keymap.set("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 -- quit nvim
 keymap.set("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
 -- highlights under cursor
-keymap.set("n", "<leader>ui", vim.show_pos, { desc = "Inspect Pos" })
-keymap.set("n", "<leader>uI", "<cmd>InspectTree<cr>", { desc = "Inspect Tree" })
+-- keymap.set("n", "<leader>ui", vim.show_pos, { desc = "Inspect Pos" })
+-- keymap.set("n", "<leader>uI", "<cmd>InspectTree<cr>", { desc = "Inspect Tree" })
 -- Turn the word under cursor to upper case
 keymap.set("i", "<c-u>", "<Esc>viwUea")
 -- Turn the current word into title case
