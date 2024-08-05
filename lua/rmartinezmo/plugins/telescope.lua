@@ -99,9 +99,9 @@ return {
     end, { desc = "search neovim files" })
 
     -- git
-    keymap.set("n", "<leader>gc", "<cmd>telescope git_commits<cr>", { desc = "list commits" })
-    keymap.set("n", "<leader>gb", "<cmd>telescope git_branches<cr>", { desc = "list branches" })
-    -- keymap.set("n", "<leader>gf", "<cmd>telescope git_files<cr>", { desc = "list git files" })
-    keymap.set("n", "<leader>gs", "<cmd>telescope git_status<cr>", { desc = "status changes" })
+    keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>", { desc = "list commits" })
+    keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>", { desc = "list branches" })
+    -- keymap.set("n", "<leader>gf", "<cmd>Telescope git_files<cr>", { desc = "list git files" })
+    keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>", { desc = "status changes" })
   end,
 }
