@@ -35,7 +35,7 @@ keymap.set("v", "<A-k>", ":m .-2<CR>==", opts)
 keymap.set("n", "+", "<C-a>", { desc = "Increment number" }) -- increment
 keymap.set("n", "-", "<C-x>", { desc = "Decrement number" }) -- decrement
 -- clear highlights
-keymap.set("n", "<Esc>", ":noh<CR>", opts)
+keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and Clear hlsearch" })
 -- save file
 keymap.set("n", "<C-s>", "<cmd> w <CR>", opts)
 -- quit file
@@ -95,10 +95,17 @@ keymap.set("n", "<C-u>", "<C-u>zz")
 keymap.set("n", "n", "nzzzv")
 keymap.set("n", "N", "Nzzzv")
 
+-- buffers
+keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
+keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+keymap.set("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
+keymap.set("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+keymap.set("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+keymap.set("n", "<leader>bd", "<cmd>:bd<cr>", { desc = "Delete Buffer" })
 ------------------------------------------------------------------------------------------------------------------
 -- Utilities
 ------------------------------------------------------------------------------------------------------------------
-keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
+keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w!<cr><esc>", { desc = "Save File" })
 -- Keep last yanked when pasting
 keymap.set("v", "p", '"_dP', opts)
 -- Vertical scroll and center

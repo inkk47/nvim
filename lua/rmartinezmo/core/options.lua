@@ -29,8 +29,7 @@ opt.scrolloff = 8 -- set 10 lines of context
 -- search settings
 opt.incsearch = true -- search as characters are entered
 opt.ignorecase = true -- ignore case when searching
-opt.smartcase = false -- if you include mixed case in your search, assumes you want case-sensitive
-
+opt.shortmess:append({ W = true, I = true, c = true, C = true })
 opt.smartcase = true -- Don't ignore case with capitals
 opt.smartindent = true -- Insert indents automatically
 opt.spelllang = { "es" }
@@ -100,3 +99,13 @@ vim.o.completeopt = "menuone,noselect"
 
 -- set termguicolors to enable highlight groupspt.swapfile = false
 vim.opt.termguicolors = true
+
+if vim.fn.has("nvim-0.10") == 1 then
+  opt.smoothscroll = true
+  opt.foldexpr = "v:lua.require'lazyvim.util'.ui.foldexpr()"
+  opt.foldmethod = "expr"
+  opt.foldtext = ""
+else
+  opt.foldmethod = "indent"
+  opt.foldtext = "v:lua.require'lazyvim.util'.ui.foldtext()"
+end
